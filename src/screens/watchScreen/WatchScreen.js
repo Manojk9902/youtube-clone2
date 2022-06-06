@@ -11,6 +11,7 @@ import {
   getVideoById,
 } from "../../redux/actions/videos.action";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { Helmet } from "react-helmet";
 
 const WatchScreen = () => {
   const { id } = useParams();
@@ -30,6 +31,9 @@ const WatchScreen = () => {
 
   return (
     <Row>
+      <Helmet>
+        <title>{video?.snippet?.title}</title>
+      </Helmet>
       <Col lg={8}>
         <div className="watchScreen__player">
           <iframe
